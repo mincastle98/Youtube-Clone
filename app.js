@@ -9,6 +9,8 @@ import globalRouter from "./routers/globalRouter"
 import routes from "./routes";
 const app = express()
 
+app.set("view engine", "pug");
+
 //use 함수 하단에 존재하는 Route에 대해서만 middleware로서 작동
 app.use(cookieparser());    
 app.use(bodyparser.json());

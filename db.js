@@ -4,7 +4,7 @@ export const videos = [
         title: "Video awesome",
         description: "This is something",
         views: 24,
-        videoFile: "http://archive.org/details/BigBuckBunny_124",
+        videoFile: "http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1212121,
             name: "Mincastle",
@@ -16,7 +16,7 @@ export const videos = [
         title: "Video super",
         description: "This is something",
         views: 24,
-        videoFile: "http://archive.org/details/BigBuckBunny_124",
+        videoFile: "http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1212121,
             name: "Mincastle",
@@ -28,7 +28,7 @@ export const videos = [
         title: "Video nice",
         description: "This is something",
         views: 24,
-        videoFile: "http://archive.org/details/BigBuckBunny_124",
+        videoFile: "http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1212121,
             name: "Mincastle",
@@ -40,7 +40,7 @@ export const videos = [
         title: "Video perfect",
         description: "This is something",
         views: 24,
-        videoFile: "http://archive.org/details/BigBuckBunny_124",
+        videoFile: "http://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1212121,
             name: "Mincastle",

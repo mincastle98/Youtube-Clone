@@ -19,6 +19,10 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(localsMiddleware);
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
+    return next();
+    });
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);   //누군가 /user 경로에 접속하면 userRouter 전체를 사용

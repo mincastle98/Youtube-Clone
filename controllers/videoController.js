@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 
+// Home
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
@@ -10,11 +11,21 @@ export const home = async (req, res) => {
     res.render("home", { pageTitle: "Home", videos: [] });
   }
 };
-export const search = (req, res) => {
+
+// Search
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy }
   } = req; //const searchingBy = req.query.term
-  res.render("search", { pageTitle: "Search", searchingBy });
+  let videos = [];
+  try {
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
 // Upload
@@ -72,6 +83,7 @@ export const postEditVideo = async (req, res) => {
   }
 };
 
+// Delete Video
 export const deleteVideo = async (req, res) => {
   const {
     params: { id }

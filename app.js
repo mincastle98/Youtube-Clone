@@ -12,8 +12,8 @@ const app = express();
 
 app.set("view engine", "pug");
 
-//use 함수 하단에 존재하는 Route에 대해서만 middleware로서 작동
 app.use(helmet());
+app.use("/uploads", express.static("uploads"));
 app.use(cookieparser());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));

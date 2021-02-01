@@ -1,5 +1,4 @@
 const path = require("path");
-const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
@@ -35,7 +34,7 @@ const config = {
               postcssOptions: {
                 plugins: [
                   [
-                    autoprefixer,
+                    "autoprefixer",
                     {
                       overrideBrowserslist: "cover 99.5%"
                     }

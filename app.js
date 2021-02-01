@@ -8,12 +8,14 @@ import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+
 const app = express();
 
 app.set("view engine", "pug");
 
 app.use(helmet());
 app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("static"));
 app.use(cookieparser());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));

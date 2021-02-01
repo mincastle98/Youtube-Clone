@@ -118,3 +118,4 @@ dist
 package-lock.json
 .vscode/extensions.json
 uploads
+static

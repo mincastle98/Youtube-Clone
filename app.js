@@ -3,11 +3,15 @@ import morgan from "morgan"; //logging을 체크
 import helmet from "helmet"; //기초적인 보안
 import cookieparser from "cookie-parser"; //유저로부터 받은 cookie를 이해하는 방식
 import bodyparser from "body-parser"; //서버가 유저로부터 받은 데이터(form)를 이해하는 방식
+import passport from "passport";
+import session from "express-session";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+
+import "./passport";
 
 const app = express();
 
@@ -20,7 +24,17 @@ app.use(cookieparser());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(localsMiddleware);
+
 app.use(function (req, res, next) {
   res.setHeader(
     "Content-Security-Policy",
